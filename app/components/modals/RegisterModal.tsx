@@ -1,14 +1,15 @@
 'use client';
 
 import axios from 'axios';
-import { signIn } from 'next-auth/react';
+// import { signIn } from 'next-auth/react';
 import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 
-import useLoginModal from '@/app/hooks/useLoginModal';
+// import useLoginModal from '@/app/hooks/useLoginModal';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 
 import Button from '../Button';
@@ -18,7 +19,7 @@ import Modal from './Modal';
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
-  const loginModal = useLoginModal();
+  // const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -41,7 +42,7 @@ const RegisterModal = () => {
       .then(() => {
         toast.success('Registered!');
         registerModal.onClose();
-        loginModal.onOpen();
+        // loginModal.onOpen();
       })
       .catch((error) => {
         toast.error(error);
@@ -53,8 +54,8 @@ const RegisterModal = () => {
 
   const onToggle = useCallback(() => {
     registerModal.onClose();
-    loginModal.onOpen();
-  }, [registerModal, loginModal]);
+    // loginModal.onOpen();
+  }, [registerModal]);
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
